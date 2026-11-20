@@ -1,14 +1,17 @@
+/* ---------- 1. Design tokens ---------- */
+/* Light mode: mint-tinted variant of the same teal palette */
 :root {
-  --color-bg: #f6f7f4;
+  --color-bg: #f2f8f7;
   --color-surface: #ffffff;
-  --color-text: #1c2430;
-  --color-muted: #5a6474;
-  --color-primary: #0f6e6e;
-  --color-primary-dark: #0a5050;
+  --color-text: #0b1a18;
+  --color-muted: #51635f;
+  --color-primary: #0a7f72;
+  --color-primary-dark: #075f56;
   --color-on-primary: #ffffff;
-  --color-border: #dde1e6;
+  --color-border: #d3e3e0;
   --color-error: #b3261e;
   --color-success: #1e7b3a;
+  --color-glow: rgba(10, 127, 114, 0.10);
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-heading: Georgia, "Times New Roman", serif;
@@ -23,17 +26,19 @@
   --max-width: 1080px;
 }
 
+/* Dark mode: matches the screenshot (near-black green background, glowing teal accent) */
 body.dark {
-  --color-bg: #11161d;
-  --color-surface: #1a212b;
-  --color-text: #e7ebf0;
-  --color-muted: #a2abb9;
-  --color-primary: #4fc1c1;
-  --color-primary-dark: #83d8d8;
-  --color-on-primary: #0b1f1f;
-  --color-border: #2b3340;
-  --color-error: #ff8a80;
-  --color-success: #7ddc97;
+  --color-bg: #060d0c;
+  --color-surface: #0b1514;
+  --color-text: #e8f1ef;
+  --color-muted: #8b9c98;
+  --color-primary: #2fd4bd;
+  --color-primary-dark: #7ae8d6;
+  --color-on-primary: #03110f;
+  --color-border: #17302c;
+  --color-error: #ff7b72;
+  --color-success: #3ddc97;
+  --color-glow: rgba(47, 212, 189, 0.16);
   color-scheme: dark;
 }
 /* ---------- 2. Base and reset ---------- */
@@ -202,7 +207,9 @@ img {
 
 .hero {
   padding-block: var(--space-5);
-  background: linear-gradient(135deg, var(--color-surface), var(--color-bg));
+  background:
+    radial-gradient(ellipse at 85% 60%, var(--color-glow), transparent 55%),
+    linear-gradient(135deg, var(--color-surface), var(--color-bg));
   border-bottom: 1px solid var(--color-border);
 }
 
